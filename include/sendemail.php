@@ -5,7 +5,7 @@ require_once('phpmailer/PHPMailerAutoload.php');
 $toemails = array();
 
 $toemails[] = array(
-	'email' => 'oblongataeteam@gmail.com', // Your Email Address
+	'email' => '"https://formspree.io/oblongataeteam@gmail.com', // Your Email Address
 	'name' => 'Oblongatae Team' // Your Name
 );
 
