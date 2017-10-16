@@ -17,7 +17,7 @@
 $saveTxt   = TRUE;
 
 // Send subscriber email to your email account, set TRUE or FALSE
-$sendEmail = FALSE;
+$sendEmail = TRUE;
 
 // Save subscriber email to database (MySQL), set TRUE or FALSE
 $saveMySQL = FALSE;
@@ -63,7 +63,7 @@ if(!empty($_POST)){
 		/** SendEmail starts **/
 		if($sendEmail){
 
-			$to      = "grantmaarons@gmail.com";     // CONFIG: Enter your email address HERE
+			$to      = "oblongataeteam@gmail.com";     // CONFIG: Enter your email address HERE
 			$subject = "Oblongatae Subscription Form";  // CONFIG: Enter your Subject
 
 			$body  = "Oblongatae Subscription Form: ".$email."\r\n";

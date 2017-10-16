@@ -163,7 +163,7 @@ Version: 1.5
 	function init_ED_Layout() {
 		/* FULLPAGE */
 		$('#fullpage').fullpage({
-			anchors: ['firstPage', 'secondPage', '3rdPage', '4thPage', 'lastPage'],
+			anchors: ['home', 'subscribe', 'about', 'submission'],
 			menu: '#menu',
 			scrollingSpeed: 540,
 			autoScrolling: true,
