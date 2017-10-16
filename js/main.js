@@ -17,7 +17,7 @@ Version: 1.5
 		preloaderDelay = 350,
 		preloaderFadeOutTime = 800,
 		countdown = $('.countdown[data-countdown]');
-	
+
 	// Mobile
 	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 		body.addClass('mobile');
@@ -46,7 +46,7 @@ Version: 1.5
 		return Math.max( $(window).height(), window.innerHeight);
 	}
 
-	
+
 	// Preloader
 	function init_ED_Preloader() {
 
@@ -68,7 +68,7 @@ Version: 1.5
 					'visibility': 'visible'
 				});
 			} else {
-				
+
 				$('.animated').on('appear', function() {
 					var elem = $(this);
 					var animation = elem.data('animation');
@@ -83,7 +83,7 @@ Version: 1.5
 						}
 					}
 				});
-				
+
 				/* Starting Animation on Load */
 				$('.onstart').each( function() {
 					var elem = $(this);
@@ -99,13 +99,13 @@ Version: 1.5
 						}
 					}
 				});
-				
+
 			}
 
 		}
 	}
-	
-	
+
+
 	//	Backgrounds
 	function init_ED_PageBackground() {
 		if(body.hasClass('image-background')) { // IMAGE BACKGROUND
@@ -154,14 +154,14 @@ Version: 1.5
 				// Default background on mobile devices
 				body.backstretch("demo/video/video.jpg");
 
-			}	
+			}
 		}
 	}
-	
-	
+
+
 	// Layout
 	function init_ED_Layout() {
-		/* FULLPAGE */	
+		/* FULLPAGE */
 		$('#fullpage').fullpage({
 			anchors: ['firstPage', 'secondPage', '3rdPage', '4thPage', 'lastPage'],
 			menu: '#menu',
@@ -178,18 +178,18 @@ Version: 1.5
 		$('a.go-slide').on( 'click', function() {
 			var elem = $(this),
 				slideID = elem.data('slide');
-				
+
 			$.fn.fullpage.moveTo(slideID);
 		});
-		
+
 		if( body.hasClass('mobile') ) {
 			$('#main-nav a').on( 'click', function() {
 				$('.navbar-toggle').trigger('click');
 			});
 		};
 	}
-	
-	
+
+
 	function init_ED_Plugins() {
 
 		/* RESPONSIVE VIDEO - FITVIDS */
@@ -212,7 +212,7 @@ Version: 1.5
 
 
 		/* COUNTDOWN */
-		if (countdown.length) {			
+		if (countdown.length) {
 			countdown.each(function() {
 				var $this = $(this),
 					finalDate = $(this).data('countdown');
@@ -228,7 +228,7 @@ Version: 1.5
 		/* MAILCHIMP */
 		$('.mailchimp').ajaxChimp({
 			callback: mailchimpCallback,
-			url: "mailchimp-post-url" //Replace this with your own mailchimp post URL. Don't remove the "". Just paste the url inside "".  
+			url: "https://oblongatae.us17.list-manage.com/subscribe/post?u=e4dc7fc95576f8eaaeb0c0ac6&amp;id=6bc05857bf" //Replace this with your own mailchimp post URL. Don't remove the "". Just paste the url inside "".
 		});
 
 		function mailchimpCallback(resp) {
@@ -238,7 +238,7 @@ Version: 1.5
 
 			} else if(resp.result === 'error') {
 				$('.error-message').html(resp.msg).fadeIn(1000);
-			}  
+			}
 		}
 
 
@@ -256,6 +256,13 @@ Version: 1.5
 				success: function(data){
 					if(data.error){
 						$('.error-message').fadeIn();
+
+						/* MAILCHIMP */
+						$('.mailchimp').ajaxChimp({
+						    callback: mailchimpCallback,
+						    url: "https://oblongatae.us17.list-manage.com/subscribe/post?u=e4dc7fc95576f8eaaeb0c0ac6&amp;id=6bc05857bf" //Replace this with your own mailchimp post URL. Don't remove the "". Just paste the url inside "".
+						});
+
 					}else{
 						$('.success-message').fadeIn();
 						$(".error-message").hide();
@@ -282,7 +289,7 @@ Version: 1.5
 
 		/* PLACEHOLDER */
 		$('input, textarea').placeholder();
-		
+
 	}
 
 	// CONTACT FORM
@@ -312,13 +319,13 @@ Version: 1.5
 
 		});
 	}
-	
+
 	// window load function
 	$(window).on('load', function() {
 		init_ED_Preloader();
 		init_ED_Animations();
 	});
-	
+
 	// document.ready function
 	jQuery(document).ready(function($) {
 		init_ED_PageBackground();
